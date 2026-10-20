@@ -1,0 +1,7 @@
+**/target/
+**/node_modules/
+**/cache/
+**/artifacts/
+**/evm-test-cache/
+**/evm-test-artifacts/
+**/.DS_Store

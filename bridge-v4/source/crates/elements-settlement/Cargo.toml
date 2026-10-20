@@ -1,0 +1,19 @@
+[package]
+name = "ecx-elements-settlement"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+ecx-protocol-core = { path = "../protocol-core", features = ["serde"] }
+elements = { version = "0.25.3", features = ["serde"] }
+serde = { version = "1", features = ["derive"] }
+sha2 = "0.10"
+thiserror = "2"
+
+[dev-dependencies]
+ecx-witness-availability = { path = "../witness-availability", default-features = false, features = ["producer"] }
+hex = "0.4"
+rand = "0.8"
+serde_json = "1"

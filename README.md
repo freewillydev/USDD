@@ -1,5 +1,9 @@
 # USDD protocol workspace
 
+The newer local V4 bridge and six-ack slot-24 Ethereum exit candidate are in
+[`bridge-v4`](bridge-v4/README.md). They are qualification source, not a deployed
+upgrade; see its release-identity and proof limitations before use.
+
 This workspace contains the deterministic USDD bridge protocol model and the
 in-progress Ethereum and Simplicity integrations:
 

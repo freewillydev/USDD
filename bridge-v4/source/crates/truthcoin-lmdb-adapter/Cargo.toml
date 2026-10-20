@@ -1,0 +1,18 @@
+[package]
+name = "ecx-truthcoin-lmdb-adapter"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Native canonical checkpoint bridge for pinned Truthcoin LMDB state"
+
+[dependencies]
+ecx-protocol-core = { path = "../protocol-core" }
+ecx-truthcoin-proof = { path = "../truthcoin-proof" }
+ecx-truthcoin-replay = { path = "../truthcoin-replay" }
+heed = "0.21.0"
+serde_json = "1.0"
+thiserror = "2.0"
+
+[dev-dependencies]
+tempfile = "3.13"

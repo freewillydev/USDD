@@ -1,0 +1,34 @@
+[package]
+name = "ecx-full-alpha-adapter-v3"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[features]
+truthcoin-authority = ["dep:ecx-truthcoin-replay", "ecx-truthcoin-replay/authority-settlement", "ecx-truthcoin-replay/truthcoin-alpha-one-day-period"]
+
+[dependencies]
+ecx-truthcoin-replay = { path = "../truthcoin-replay", optional = true }
+ecx-proof-core = { path = "../proof-core" }
+ecx-elements-settlement = { path = "../elements-settlement" }
+ecx-protocol-core = { path = "../protocol-core", default-features = false, features = ["serde"] }
+ecx-witness-availability = { path = "../witness-availability", default-features = false }
+bincode = "=1.3.3"
+elements = { version = "=0.25.3", features = ["serde"] }
+bitcoin = { version = "=0.32.5", features = ["serde"] }
+ecx-full-consensus-validator-v2 = { path = "../full-consensus-validator-v2", default-features = false }
+serde = { version = "=1.0.228", features = ["derive"] }
+thiserror = "=2.0.17"
+
+[patch.crates-io]
+secp256k1-zkp-sys = { path = "../../vendor/secp256k1-zkp-sys-0.10.1" }
+
+[dev-dependencies]
+ecx-truthcoin-proof = { path = "../truthcoin-proof" }
+sha2 = "0.10"
+secp256k1 = { version = "0.29.1", features = ["std"] }
+hex = "=0.4.3"
+ecx-witness-availability = { path = "../witness-availability", default-features = false, features = ["producer"] }
+serde_json = "=1.0.145"

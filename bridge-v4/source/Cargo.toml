@@ -1,0 +1,30 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/protocol-core",
+    "crates/parent-enforcer",
+    "crates/proof-core",
+    "crates/matcher",
+    "crates/truthcoin-proof",
+    "crates/truthcoin-replay",
+    "crates/truthcoin-lmdb-adapter",
+    "crates/truthcoin-keeper",
+    "crates/elements-settlement",
+    "crates/witness-availability",
+    "crates/stress-harness",
+    "crates/forced-action-client",
+    "crates/bond-action-client",
+    "crates/prediction-market-client",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+license = "MIT OR Apache-2.0"
+
+[profile.dev]
+debug = 0
+
+[profile.test]
+debug = 0

@@ -1,0 +1,8 @@
+{
+  "name": "usdd-v4-six-ack-tests",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node test-redemption.mjs" },
+  "devDependencies": { "hardhat": "3.20.0", "solc": "0.8.37" },
+  "overrides": { "tmp": "0.2.7" }
+}

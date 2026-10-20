@@ -1,0 +1,40 @@
+[package]
+name = "ecx-full-alpha-adapter-v3-sp1-guest"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.91"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[workspace]
+
+[features]
+truthcoin-authority = ["ecx-full-alpha-adapter-v3/truthcoin-authority"]
+
+[dependencies]
+ecx-full-alpha-adapter-v3 = { path = "../../crates/full-alpha-adapter-v3" }
+ecx-redemption-capability-v2 = { path = "../../crates/redemption-capability-v2", features = ["native-alpha"] }
+ecx-full-consensus-validator-v2 = { path = "../../crates/full-consensus-validator-v2", features = ["full-elements"] }
+sha2 = "=0.10.8"
+sp1-zkvm = { version = "=6.3.1", default-features = true, features = ["verify"] }
+
+[patch.crates-io]
+secp256k1-zkp-sys = { path = "../../vendor/secp256k1-zkp-sys-0.10.1" }
+
+[[bin]]
+name = "alpha-truthcoin-authority-v2"
+path = "src/bin/alpha-truthcoin-authority-v2.rs"
+required-features = ["truthcoin-authority"]
+test = false
+bench = false
+
+[[bin]]
+name = "ecx-full-alpha-adapter-v3-sp1-guest"
+path = "src/main.rs"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+opt-level = 3

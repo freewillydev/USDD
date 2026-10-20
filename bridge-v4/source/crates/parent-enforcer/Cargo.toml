@@ -1,0 +1,19 @@
+[package]
+name = "ecx-parent-enforcer"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Header-only BIP300/BIP301 commitment adapter for ECX miners"
+
+[features]
+default = []
+legacy-pxst-reference = ["dep:ecx-protocol-core"]
+
+[dependencies]
+ecx-protocol-core = { path = "../protocol-core", default-features = false, optional = true }
+sha2 = "0.10.8"
+thiserror = "1.0.63"
+
+[lints.rust]
+unsafe_code = "forbid"

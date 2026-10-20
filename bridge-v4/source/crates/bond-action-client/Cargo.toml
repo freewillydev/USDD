@@ -1,0 +1,34 @@
+[package]
+name = "ecx-bond-action-client"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+license = "MIT OR Apache-2.0"
+description = "Fail-closed wallet boundary for ECX v2 insurance-bond actions"
+
+[features]
+truthcoin-alpha-one-day-period = ["ecx-truthcoin-replay/truthcoin-alpha-one-day-period"]
+
+[dependencies]
+clap = { version = "4.5", features = ["derive", "env"] }
+ecx-elements-settlement = { path = "../elements-settlement" }
+ecx-matcher = { path = "../matcher" }
+ecx-proof-core = { path = "../proof-core" }
+ecx-protocol-core = { path = "../protocol-core" }
+ecx-truthcoin-replay = { path = "../truthcoin-replay" }
+ecx-witness-availability = { path = "../witness-availability", features = ["producer"] }
+elements = "0.25.3"
+hex = "0.4"
+rand = "0.8"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+secp256k1 = { version = "0.29.1", features = ["std"] }
+secp256k1-zkp = { version = "0.11.0", features = ["std"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0", features = ["arbitrary_precision"] }
+thiserror = "2.0"
+tokio = { version = "1.47", features = ["macros", "rt-multi-thread"] }
+
+[dev-dependencies]
+axum = "0.8"
+secp256k1-zkp = { version = "0.11.0", features = ["rand-std"] }
+tempfile = "3.20"

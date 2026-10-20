@@ -1,0 +1,33 @@
+[package]
+name = "ecx-prediction-market-client"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+anyhow = "1.0.86"
+axum = "0.7.7"
+clap = { version = "4.5.18", features = ["derive"] }
+ecx-protocol-core = { path = "../protocol-core" }
+elements = "0.25.3"
+hex = "0.4.3"
+secp256k1 = { version = "0.29.1", features = ["std", "rand-std"] }
+serde = { version = "1.0.210", features = ["derive"] }
+serde_json = "1.0.128"
+subtle = "2.6.1"
+tokio = { version = "1.40.0", features = ["macros", "rt-multi-thread", "net"] }
+zeroize = { version = "1.8.1", features = ["derive"] }
+
+[dev-dependencies]
+tempfile = "3.13.0"
+tower = { version = "0.5.2", features = ["util"] }
+
+[[bin]]
+name = "ecx-prediction-market-base-transaction"
+path = "src/bin/base_transaction.rs"
+
+[[bin]]
+name = "ecx-prediction-market-deployment"
+path = "src/bin/deployment.rs"
